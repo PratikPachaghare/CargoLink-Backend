@@ -9,10 +9,14 @@ const userSchema = new mongoose.Schema(
     phone: { type: String },
     role: {
       type: String,
-      enum: ["customer", "driver", "porter"],
-      default: "customer",
+      enum: ["user"], // Only 'user'
+      default: "user",
     },
     profileImage: { type: String },
+    dob: { type: Date }, // Date of birth
+    gender: { type: String, enum: ["male", "female", "other"] }, // Gender
+    address: { type: String }, // Optional: can store address
+    isVerified: { type: Boolean, default: false } // Optional: email verification flag
   },
   { timestamps: true }
 );
