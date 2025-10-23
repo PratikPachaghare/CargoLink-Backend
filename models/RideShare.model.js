@@ -1,5 +1,5 @@
 // models/RideShare.js
-const mongoose = require("mongoose");
+import mongoose from "mongoose";
 
 const rideShareSchema = new mongoose.Schema({
   driverId: { type: mongoose.Schema.Types.ObjectId, ref: "User", required: true },
