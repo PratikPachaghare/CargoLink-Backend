@@ -1,5 +1,6 @@
-import Vehicle from "../models/Vehicle.js";
-import { uplodsOnCloudinary } from "../utils/cloudinary.js";
+
+import Vehicle from "../../models/Vehicle.model.js";
+import { uplodsOnCloudinary } from "../../utils/cloudinery.js";
 import fs from "fs";
 
 // ✅ Register a new vehicle

@@ -1,5 +1,5 @@
-import RideShare from "../../models/RideShare.model";
-import { uplodsOnCloudinary } from "../../utils/cloudinaryUpload.js";
+import RideShare from "../../models/RideShare.model.js";
+import { uplodsOnCloudinary } from "../../utils/cloudinery.js";
 import fs from "fs";
 
 // 📦 Create RideShare with Cloudinary image upload

@@ -1,7 +1,8 @@
 import { Router } from "express";
-import { createRideShare, deleteRideShare, updateRideShare } from "../controllers/RideShare/RideShare.controllers";
-import { getActiveRides, getAllRides, getRideById } from "../controllers/RideShare/RideSharePost.controller";
+import multer from "multer";
 
+import { createRideShare, deleteRideShare, getActiveRides, getAllRides, getRideById, updateRideShare } from "../controllers/RideShare/RideSharePost.controller.js";
+const upload = multer( { dest: 'uploads/' } );
 const rideSharePostRouter = Router();
 
 rideSharePostRouter.post("/createPost", upload.single("image"), createRideShare);
