@@ -6,8 +6,14 @@ const deliveryRequestSchema = new mongoose.Schema({
   dropLocation: { type: String, required: true },
   cargoDetails: {
     type: { type: String },
+    productName: { type: String },
     weight: { type: Number },
-    size: { type: String }
+    size: { 
+      sizeType:{type: String, required: true}, 
+      height: { type: Number},
+      width: { type: Number },
+      depth: { type: Number }
+     }
   },
   status: { type: String, enum: ["pending", "accepted", "inTransit", "delivered"], default: "pending" },
   assignedDriverId: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
