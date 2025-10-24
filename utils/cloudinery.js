@@ -3,9 +3,9 @@ import { v2 as cloudinary } from 'cloudinary';
 import fs from 'fs';
  
 cloudinary.config({   
-    cloud_name: process.env.CLOUDINARY_CLOUD_NAME, 
-    api_key: process.env.CLOUDINARY_API_KEY, 
-    api_secret: process.env.CLOUDINERY_SECREAT_KEY
+    cloud_name: 'dncz7an76', 
+    api_key:595497451849567, 
+    api_secret: 'Z5I4fa2GoL28FQgJo_gD88ZJkXw'
     })
 
 const uplodsOnCloudinary = async (localFile) =>{
@@ -15,7 +15,7 @@ const uplodsOnCloudinary = async (localFile) =>{
         return respoans;
     } catch (error) {
         fs.unlinkSync(localFile);
-        console.log("error in file uplod in uplod on cloudinary");
+        console.log("error in file uplod in uplod on cloudinary",error);
         return null;
     }
 }
