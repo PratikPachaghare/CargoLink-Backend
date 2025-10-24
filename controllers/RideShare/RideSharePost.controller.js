@@ -1,8 +1,9 @@
-import RideShare from "../../models/RideShare.model.js";
+
+import RideSharePost from "../../models/RideSharePost.model.js";
 import { uplodsOnCloudinary } from "../../utils/cloudinery.js";
 import fs from "fs";
 
-// 📦 Create RideShare with Cloudinary image upload
+//  Create RideShare with Cloudinary image upload
 export const createRideShare = async (req, res) => {
   try {
     const {
@@ -36,7 +37,7 @@ export const createRideShare = async (req, res) => {
       }
     }
 
-    const newRide = new RideShare({
+    const newRide = new RideSharePost({
       from,
       to,
       fromCoordinates,
@@ -84,7 +85,7 @@ export const getAllRides = async (req, res) => {
     if (to) filter.to = { $regex: to, $options: "i" };
     if (status) filter.status = status;
 
-    const rides = await RideShare.find(filter).sort({ createdAt: -1 });
+    const rides = await RideSharePost.find(filter).sort({ createdAt: -1 });
     res.status(200).json({ success: true, count: rides.length, data: rides });
   } catch (error) {
     res
@@ -100,7 +101,7 @@ export const getAllRides = async (req, res) => {
 //  Get a single ride by ID
 export const getRideById = async (req, res) => {
   try {
-    const ride = await RideShare.findById(req.params.id);
+    const ride = await RideSharePost.findById(req.params.id);
     if (!ride) {
       return res
         .status(404)
@@ -121,7 +122,7 @@ export const getRideById = async (req, res) => {
 // ✏️ Update ride details
 export const updateRideShare = async (req, res) => {
   try {
-    const updatedRide = await RideShare.findByIdAndUpdate(
+    const updatedRide = await RideSharePost.findByIdAndUpdate(
       req.params.id,
       req.body,
       {
@@ -157,7 +158,7 @@ export const deleteRideShare = async (req, res) => {
     const { id } = req.params;
 
   try {
-    const deletedRide = await RideShare.findByIdAndDelete(id);
+    const deletedRide = await RideSharePost.findByIdAndDelete(id);
     if (!deletedRide) {
       return res
         .status(404)
@@ -180,7 +181,7 @@ export const deleteRideShare = async (req, res) => {
 //  Get active or ongoing rides
 export const getActiveRides = async (req, res) => {
   try {
-    const activeRides = await RideShare.find({
+    const activeRides = await RideSharePost.find({
       status: { $in: ["Scheduled", "On Route"] },
     });
     res

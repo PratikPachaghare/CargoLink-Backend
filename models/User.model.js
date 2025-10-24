@@ -9,7 +9,7 @@ const userSchema = new mongoose.Schema(
     phone: { type: String },
     role: {
       type: String,
-      enum: ["user"], // Only 'user'
+      enum: ["user","driver"],
       default: "user",
     },
     profileImage: { type: String },

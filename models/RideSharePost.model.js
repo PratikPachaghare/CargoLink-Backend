@@ -37,7 +37,7 @@ const rideShareSchema = new mongoose.Schema(
     driverId: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "User",
-      required: true,
+      // required: true,
     },
     driverContact: {
       type: String,
@@ -87,4 +87,5 @@ const rideShareSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-export default mongoose.model("RideShare", rideShareSchema);
+const RideSharePost = mongoose.model("RideSharePost", rideShareSchema);
+export default RideSharePost;
